@@ -21,6 +21,15 @@ exports.initalize = function (config) {
         if(config.logging){
             console.log("To enable debug logging use: adb shell setprop log.tag.GAv4 DEBUG");
         }
+
+        if (config.consoleLogging == false)
+        {
+            global.consoleLogging = false;
+        }
+        else
+        {
+            global.consoleLogging = true;
+        }
         
         global.gaInstance = gai;
         global.gaTracker = tracker;
@@ -33,14 +42,14 @@ exports.initalize = function (config) {
 }
 
 exports.logView = function(viewname){
-    console.log("Analytics Event: Log Screen View: " + viewname + " at " + new Date());
+    if (global.consoleLogging) { console.log("Analytics Event: Log Screen View: " + viewname + " at " + new Date()); }
     global.gaTracker.setScreenName(viewname);
     var builtEvent = new com.google.android.gms.analytics.HitBuilders.ScreenViewBuilder().build();
     global.gaTracker.send(builtEvent);
 }
 
 exports.logEvent = function(data){
-    console.log("Analytics Event:" + JSON.stringify(data) + " at " + new Date());
+    if (global.consoleLogging) { console.log("Analytics Event:" + JSON.stringify(data) + " at " + new Date()); }
     var event = new com.google.android.gms.analytics.HitBuilders.EventBuilder().setCategory(data.category).setAction(data.action);
 
     if(data.label && data.label !== "" && data.label !== null)
@@ -69,7 +78,7 @@ exports.logException = function (data) {
         fatal = false;
     }
     
-    console.log("Logging GA Exception: " + description);
+    if (global.consoleLogging) { console.log("Logging GA Exception: " + description); }
 
     var event = new com.google.android.gms.analytics.HitBuilders.ExceptionBuilder().setDescription(description).setFatal(fatal);
     var builtEvent = event.build();
@@ -79,7 +88,7 @@ exports.logException = function (data) {
 
 
 exports.dispatch = function (args){
-    console.log("Flushing dispatch event queue");
+    if (global.consoleLogging) { console.log("Flushing dispatch event queue"); }
     global.gaInstance.dispatchLocalHits();
 };
 
@@ -125,14 +134,14 @@ exports.stopTimer = function (timerName) {
         }
     }   
     
-    if(!foundTimer){
+    if(!foundTimer && global.consoleLogging){
         console.log("Unable to find timer start event named " + timerName);
     }
 }
 
 
 function logTiming(data){
-    console.log("Analytics Timing Event:" + JSON.stringify(data) + " at " + new Date());
+    if (global.consoleLogging) { console.log("Analytics Timing Event:" + JSON.stringify(data) + " at " + new Date()); }
     var event = new com.google.android.gms.analytics.HitBuilders.TimingBuilder().setCategory(data.category).setValue(data.value);
  
     if(data.name && data.name !== "" && data.name !== null)
