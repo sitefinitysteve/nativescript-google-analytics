@@ -7,7 +7,11 @@
 
 ## Release Notes ##
 ### 0.2.6 ###
+<<<<<<< HEAD
+* Fixed Typescript definition file
+=======
 * Enabled Exception Reporting on the Android side "enableExceptionReporting"
+>>>>>>> refs/remotes/sitefinitysteve/master
 
 ### 0.2.5 ###
 * Added Typescript definition file
