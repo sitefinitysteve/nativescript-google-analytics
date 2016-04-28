@@ -2,6 +2,7 @@ declare module "nativescript-google-analytics" {
     export interface InitalizeOptions {
         dispatchInterval?:number;
         logging?: boolean;
+        consoleLogging?: boolean;
         trackingId: string;
     }
 
