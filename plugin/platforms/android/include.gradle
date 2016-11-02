@@ -20,7 +20,7 @@ buildscript {
 
 dependencies {
     // [START gms_compile]
-    compile 'com.google.android.gms:play-services-analytics:9.2.0'
+    compile 'com.google.android.gms:play-services-analytics:+'
     // [END gms_compile]
 }
 
