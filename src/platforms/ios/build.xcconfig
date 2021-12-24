@@ -1,1 +1,1 @@
-HEADER_SEARCH_PATHS = $(inherited) $(PROJECT_DIR)/../../node_modules/@cn/nativescript-google-analytics/platforms/ios
+HEADER_SEARCH_PATHS = $(inherited) $(PROJECT_DIR)/../../node_modules/nativescript-google-analytics/platforms/ios
