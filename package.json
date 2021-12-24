@@ -2,7 +2,7 @@
     "name": "nativescript-google-analytics",
     "version": "1.0.0",
     "description": "",
-    "main": "src/mlkit-plugin",
+    "main": "src/index.d.ts",
     "scripts": {
       "lint": "echo \"lint skipped\"",
       "test": "echo \"tests skipped\"",
@@ -10,7 +10,7 @@
     },
     "repository": {
       "type": "git",
-      "url": "git@ssh.dev.azure.com:v3/CN-EA/Mobile%20Development%20Platform/nativescript-mlkit-plugin"
+      "url": "n"
     },
     "author": "",
     "license": "ISC"
