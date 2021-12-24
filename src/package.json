@@ -1,68 +1,63 @@
 {
   "name": "nativescript-google-analytics",
-  "version": "v0.4.4",
+  "version": "1.0.0",
   "description": "Integrate native google analytics iOS and Android widgets into NativeScript",
-  "main": "index.js",
+  "main": "index.ts",
   "nativescript": {
     "platforms": {
-      "android": "3.3.0",
-      "ios": "3.3.0"
+      "android": "8.0.0",
+      "ios": "8.0.0"
     }
   },
   "scripts": {
     "tsc": "tsc -skipLibCheck",
     "build": "npm i && tsc",
-    "test.android": "npm i && npm run tsc && npm run tslint && cd ../demo && tns build android && tns test android --justlaunch",
-    "test.ios": "npm i && npm run tsc && npm run tslint && cd ../demo && tns build ios && tns test ios --justlaunch",
+    "test.android": "npm i && npm run tsc && npm run tslint && cd ../demo && ns build android && ns test android --justlaunch",
+    "test.ios": "npm i && npm run tsc && npm run tslint && cd ../demo && ns build ios && ns test ios --justlaunch",
     "tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\"",
     "plugin.tscwatch": "npm run tsc -- -w",
-    "demo.ios": "npm run preparedemo && cd ../demo && tns run ios",
-    "demo.android": "npm i && npm run tsc && cd ../demo && tns run android --syncAllFiles",
-    "demo.debug.ios": "npm i && npm run tsc && cd ../demo && tns debug ios --syncAllFiles",
-    "demo.debug.android": "npm i && npm run tsc && cd ../demo && tns debug android --syncAllFiles",
+    "demo.ios": "npm run preparedemo && cd ../demo && ns run ios",
+    "demo.android": "npm i && npm run tsc && cd ../demo && ns run android --syncAllFiles",
+    "demo.debug.ios": "npm i && npm run tsc && cd ../demo && ns debug ios --syncAllFiles",
+    "demo.debug.android": "npm i && npm run tsc && cd ../demo && ns debug android --syncAllFiles",
     "demo.reset": "cd ../demo && rimraf platforms",
     "package": "cd ../publish && ./pack.sh",
-    "preparedemo": "npm run build && npm run package && cd ../demo && tns plugin add ../publish/package/*.tgz && tns install",
-    "clean": "cd ../demo && rimraf hooks node_modules platforms && cd ../src && rimraf node_modules && npm run plugin.link",
+    "preparedemo": "npm run build && npm run package && cd ../demo && ns plugin add ../publish/package/*.tgz && ns install",
+    "clean": "cd ../demo && rimraf hooks node_modules platforms && cd ../src && rimraf node_modules",
     "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sitefinitysteve/nativescript-google-analytics.git"
+    "url": ""
   },
+  "files": [
+    "App_Resources",
+    "hooks",
+    "src",
+    "tools",
+    "!tools/assets",
+    ".editorconfig",
+    "references.d.ts",
+    "tsconfig.json"
+  ],
   "keywords": [
-    "NativeScript",
-    "Google",
-    "Analytics",
-    "GA",
-    "Google Analytics",
-    "sitefinitysteve",
-    "iOS",
-    "Android"
+    "nativescript",
+    "mobile",
+    "angular",
+    "{N}",
+    "template"
   ],
   "devDependencies": {
-    "tns-core-modules": "^4.0.0",
-    "tns-platform-declarations": "^4.0.0",
-    "typescript": "~2.7.2",
-    "prompt": "^1.0.0",
-    "rimraf": "^2.5.0",
-    "tslint": "~5.8.0"
+    "typescript": "4.3.2",
+    "prompt": "1.0.0",
+    "rimraf": "2.6.3",
+    "tslint": "5.12.1",
+    "semver": "5.6.0",
+    "@nativescript/types": "8.0.0",
+    "@nativescript/core": "8.0.0",
+    "@nativescript/hook": "2.0.0",
+    "path": "0.12.7"
   },
   "dependencies": {},
-  "author": {
-    "name": "Steve McNiven-Scott",
-    "email": "steve@sitefinitysteve.com",
-    "url": "https://github.com/sitefinitysteve"
-  },
-  "contributors": [
-    {
-      "name": "Eddy Verbruggen",
-      "email": "eddyverbruggen@gmail.com",
-      "url": "https://github.com/eddyverbruggen"
-    }
-  ],
-  "readmeFilename": "README.md",
-  "license": "Apache-2.0",
-  "bugs": "https://github.com/sitefinitysteve/nativescript-google-analytics/issues",
-  "homepage": "https://github.com/sitefinitysteve/nativescript-google-analytics"
+  "readmeFilename": "README.md"
 }

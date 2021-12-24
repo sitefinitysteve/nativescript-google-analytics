@@ -5,13 +5,15 @@ var settings = {
 };
 
 exports.initalize = function (config) {
+    console.log('Google Analytics config', config);
     if (config.trackingId) {
-
+       
+        console.log('Google Analytics GAI', GAI);
         if (typeof GAI !== "undefined") {
             var gai = GAI.sharedInstance();
             gai.trackUncaughtExceptions = true;
             var defaultTracker = gai.trackerWithTrackingId(config.trackingId);
-
+            console.log('Google Analytics defaultTracker', defaultTracker);
             if (config.enableDemographics) {
                 defaultTracker.allowIDFACollection = true;
             }

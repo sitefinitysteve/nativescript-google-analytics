@@ -1,7 +1,7 @@
 android {
   productFlavors {
-    "nativescript-google-analytics" {
-      dimension "nativescript-google-analytics"
+    "@cn/nativescript-google-analytics" {
+      dimension "@cn/nativescript-google-analytics"
     }
   }
 }

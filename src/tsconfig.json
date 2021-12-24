@@ -1,26 +1,41 @@
 {
     "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
-        "declaration": true,
-        "removeComments": true,
-        "noLib": false,
+        "target": "es2017",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "sourceMap": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "lib": ["es6", "dom"],
-        "sourceMap": true,
-        "pretty": true,
-        "allowUnreachableCode": false,
-        "allowUnusedLabels": false,
+        "noImplicitUseStrict": true,
         "noEmitHelpers": true,
-        "noEmitOnError": false,
+        "declaration": true,
+        "removeComments": false,
+        "noEmitOnError": true,
         "noImplicitAny": false,
-        "noImplicitReturns": true,
-        "noImplicitUseStrict": false,
-        "noFallthroughCasesInSwitch": true
+        "importHelpers": false,
+        "lib": ["es2017", "dom"],
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true,
+        "skipLibCheck": true
+    },
+    "angularCompilerOptions": {
+        "genDir": ".",
+        "skipMetadataEmit": false,
+        "skipTemplateCodegen": true,
+        "strictMetadataEmit": true
     },
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "lib"
     ],
-    "compileOnSave": false
+    "include": [
+        "**/*"
+    ],
+    "compileOnSave": false,
+    "files": [
+        
+        "./platforms/ios/GoogleAnalytics.d.ts"
+
+    ]
 }
